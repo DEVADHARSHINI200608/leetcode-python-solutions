@@ -1,0 +1,41 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        isana=False
+        j=0
+        s1=""
+        s2=""
+        if(len(s)>len(t)):
+            s1=s
+            s2=t
+        elif(len(s)==len(t)):
+            s1=t
+            s2=s
+        else:
+            s1=t
+            s2=s
+        
+        for i in range(len(s1)):
+            if (s1[i] not in s2 or len(s1)!=len(s2) or s2[i] not in s1):
+                isana=False
+                break
+            else:
+                if(s1.count(s1[i])==s2.count(s1[i])):
+                    isana=True
+                    #break => dont give if oru element true ah irundhaalum true aagidum
+                else:
+                    isana=False 
+                    break #here break is important becoz once it found false we need to break it 
+                '''for j in range(len(s1)):
+                    if(s1[i]==s2[j]):
+                        if(s1.count(s1[i])!=s2.count(s2[j])):
+                            isana=False
+                            break
+                        else:
+                            isana=True
+                    j+=1'''
+                
+                            
+        if(isana):
+            return True
+        else:
+            return False
