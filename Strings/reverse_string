@@ -1,0 +1,11 @@
+class Solution(object):
+
+    def reverseString(self, s):
+        s1=[]
+        for i in range(len(s)):
+            s1.append(s[i])
+        j=0
+        for i in range(len(s)-1, -1, -1):
+            s[j]=s1[i]
+            j+=1
+
