@@ -1,0 +1,152 @@
+680.VALID PALINDROME II
+
+
+Given a string s, return true if the s can be palindrome after deleting at most one character from it.
+
+ 
+
+Example 1:
+
+Input: s = "aba"
+Output: true
+Example 2:
+
+Input: s = "abca"
+Output: true
+Explanation: You could delete the character 'c'.
+Example 3:
+
+Input: s = "abc"
+Output: false
+
+
+class Solution(object):
+    def validPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        '''rev=""
+        
+        #j=len(s)
+        for k in range(len(s)):
+            rev=""
+            for i in range(len(s)):
+                if(i!=k):#if(i!=j-1):
+                    rev+=s[i]
+                #j=-1
+            if(rev==rev[::-1]):
+                    return True
+           
+        return False''' #=> TIME LIMIL EXCEEDED 
+        '''t=""
+        for i in range(len(s)):
+            t+=s[:i]+s[i+1:]
+            left=0
+            right=len(t)-1 #len of t , coz t thaan traverse panna porom
+            while(left<right):
+                if(t[left]!=t[right]):
+                     break #why not return false nah , abca irukuna last a del , return false , fnx over ; but break kodutha outr for loop work aagi c remove aagum , next work pannum 
+                else:
+                    left+=1
+                    right-=1
+            if(left>=right):
+                    return True 
+            t=""
+        return False => still tle'''
+        t=""
+        l=0
+        r=len(s)-1
+        while(l<r):
+            if(s[l]==s[r]):
+                l+=1
+                r-=1
+            else:
+                t+=s[:l]+s[l+1:] #if s[:0]=>emptystring return pannum
+                if(t==t[::-1]):
+                    return True
+                else:
+                    t=""
+                    t+=s[:r]+s[r+1:]
+                    if(t==t[::-1]):
+                        return True
+                    else :
+                        return False
+        return True #if aba irukunah ( left==rigt apohvae true aagidum no mismatch so fnx lastlah true vakrom)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+ 
